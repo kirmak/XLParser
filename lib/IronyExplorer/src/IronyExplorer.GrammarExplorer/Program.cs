@@ -1,4 +1,4 @@
-#region License
+﻿#region License
 /* **********************************************************************************
  * Copyright (c) Roman Ivantsov
  * This source code is subject to terms and conditions of the MIT License
@@ -22,21 +22,8 @@ namespace Irony.GrammarExplorer {
     /// </summary>
     [STAThread]
     static void Main() {
-      var program = CreateInstanceInSeparateDomain();
-      program.RunApplication();
-    }
-
-    static Program CreateInstanceInSeparateDomain() {
-      var setup = new AppDomainSetup {
-        ShadowCopyFiles = true.ToString()
-      };
-
-      var domain = AppDomain.CreateDomain("HostedDomain", null, setup);
-      return (Program)domain.CreateInstanceAndUnwrap(typeof(Program).Assembly.FullName, typeof(Program).FullName);
-    }
-
-    void RunApplication() {
       Application.EnableVisualStyles();
+      Application.SetHighDpiMode(HighDpiMode.SystemAware);
       Application.SetCompatibleTextRenderingDefault(false);
       Application.ThreadException += new System.Threading.ThreadExceptionEventHandler(Application_ThreadException);
       AppDomain.CurrentDomain.UnhandledException += CurrentDomain_UnhandledException;

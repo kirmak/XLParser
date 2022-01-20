@@ -23,7 +23,6 @@ using System.Text.RegularExpressions;
 using System.Xml;
 using Irony.Ast;
 using Irony.Parsing;
-using Irony.GrammarExplorer.Properties;
 using Irony.GrammarExplorer.Highlighter;
 using IronyExplorer.GrammarExplorer.Properties;
 
